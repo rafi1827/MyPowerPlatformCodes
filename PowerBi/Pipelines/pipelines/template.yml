@@ -1,0 +1,10 @@
+parameters:
+        Reports : []   
+steps:
+         - ${{ each report in parameters.Reports }}:
+             -  task: PowerBIActions@5
+                inputs:
+                            PowerBIServiceEndpoint: 'tod'
+                            Action: 'Publish'
+                            WorkspaceName: 'test1'
+                            PowerBIPath: ${{ report }}
