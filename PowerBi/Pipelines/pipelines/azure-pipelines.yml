@@ -1,0 +1,12 @@
+
+
+trigger:
+- main
+
+pool:
+  vmImage: windows-latest
+
+steps:
+- template: template.yml
+  parameters:
+    Reports : ['pbpoc.pbix','pbpoc2.pbix']
