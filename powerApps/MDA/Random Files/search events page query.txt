@@ -1,0 +1,345 @@
+If(
+    (!IsBlank('between date picker'.Value) && (!IsBlank(SE) Or !IsBlank(IF) Or !IsBlank(IE) Or !IsBlank(INV) Or !IsBlank(SEN) Or !IsBlank(PSE) Or !IsBlank(NME) Or !IsBlank(SSE))),
+    If(
+        'datetype radio'.Selected.name = "Admission Date",
+        Filter(
+            'Patient Portal Events',
+            ('Is Serious (text)' = SE Or 'Is Infrastructure(text)' = IF Or 'Is Incident(text)' = IE Or 'Is investigation(text)' = INV Or 'Is Sentinal(text)' = SEN Or 'Is PSE (text)' = PSE Or 'Is NME (text)' = NME Or 'Is SSE (text)' = SSE),
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value)),
+            (('Admission Date' >= 'between date picker'.Value Or IsBlank('between date picker'.Value)) && ('Admission Date' <= DateAdd(
+                DateAdd(
+                    DateAdd(
+                        'and date picker'.Value,
+                        23,
+                        Hours
+                    ),
+                    59,
+                    Minutes
+                ),
+                59000,
+                Milliseconds
+            ) Or IsBlank('and date picker'.Value)))
+        ),
+        'datetype radio'.Selected.name = "Confirmation Date",
+        Filter(
+            'Patient Portal Events',
+            ('Is Serious (text)' = SE Or 'Is Infrastructure(text)' = IF Or 'Is Incident(text)' = IE Or 'Is investigation(text)' = INV Or 'Is Sentinal(text)' = SEN Or 'Is PSE (text)' = PSE Or 'Is NME (text)' = NME Or 'Is SSE (text)' = SSE),
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value)),
+            (('Confirmation Date' >= 'between date picker'.Value Or IsBlank('between date picker'.Value)) && ('Confirmation Date' <= DateAdd(
+                DateAdd(
+                    DateAdd(
+                        'and date picker'.Value,
+                        23,
+                        Hours
+                    ),
+                    59,
+                    Minutes
+                ),
+                59000,
+                Milliseconds
+            ) Or IsBlank('and date picker'.Value)))
+        ),
+        'datetype radio'.Selected.name = "Last Modified Date",
+        Filter(
+            'Patient Portal Events',
+            ('Is Serious (text)' = SE Or 'Is Infrastructure(text)' = IF Or 'Is Incident(text)' = IE Or 'Is investigation(text)' = INV Or 'Is Sentinal(text)' = SEN Or 'Is PSE (text)' = PSE Or 'Is NME (text)' = NME Or 'Is SSE (text)' = SSE),
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value)),
+            (('Modified On' >= 'between date picker'.Value Or IsBlank('between date picker'.Value)) && ('Modified On' <= DateAdd(
+                DateAdd(
+                    DateAdd(
+                        'and date picker'.Value,
+                        23,
+                        Hours
+                    ),
+                    59,
+                    Minutes
+                ),
+                59000,
+                Milliseconds
+            ) Or IsBlank('and date picker'.Value)))
+        ),
+        'datetype radio'.Selected.name = "Discharge Date",
+        Filter(
+            'Patient Portal Events',
+            ('Is Serious (text)' = SE Or 'Is Infrastructure(text)' = IF Or 'Is Incident(text)' = IE Or 'Is investigation(text)' = INV Or 'Is Sentinal(text)' = SEN Or 'Is PSE (text)' = PSE Or 'Is NME (text)' = NME Or 'Is SSE (text)' = SSE),
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value)),
+            (('Discharge Date' >= 'between date picker'.Value Or IsBlank('between date picker'.Value)) && ('Discharge Date' <= DateAdd(
+                DateAdd(
+                    DateAdd(
+                        'and date picker'.Value,
+                        23,
+                        Hours
+                    ),
+                    59,
+                    Minutes
+                ),
+                59000,
+                Milliseconds
+            ) Or IsBlank('and date picker'.Value)))
+        ),
+        'datetype radio'.Selected.name = "Discovery Date",
+        Filter(
+            'Patient Portal Events',
+            ('Is Serious (text)' = SE Or 'Is Infrastructure(text)' = IF Or 'Is Incident(text)' = IE Or 'Is investigation(text)' = INV Or 'Is Sentinal(text)' = SEN Or 'Is PSE (text)' = PSE Or 'Is NME (text)' = NME Or 'Is SSE (text)' = SSE),
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value)),
+            (('Discovery Date' >= 'between date picker'.Value Or IsBlank('between date picker'.Value)) && ('Discovery Date' <= DateAdd(
+                DateAdd(
+                    DateAdd(
+                        'and date picker'.Value,
+                        23,
+                        Hours
+                    ),
+                    59,
+                    Minutes
+                ),
+                59000,
+                Milliseconds
+            ) Or IsBlank('and date picker'.Value)))
+        ),
+        'datetype radio'.Selected.name = "Event Date",
+        Filter(
+            'Patient Portal Events',
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value)),
+            (('Event Date' >= 'between date picker'.Value Or IsBlank('between date picker'.Value)) && ('Event Date' <= DateAdd(
+                DateAdd(
+                    DateAdd(
+                        'and date picker'.Value,
+                        23,
+                        Hours
+                    ),
+                    59,
+                    Minutes
+                ),
+                59000,
+                Milliseconds
+            ) Or IsBlank('and date picker'.Value))),
+            ('Is Serious (text)' = SE Or 'Is Infrastructure(text)' = IF Or 'Is Incident(text)' = IE Or 'Is investigation(text)' = INV Or 'Is Sentinal(text)' = SEN Or 'Is PSE (text)' = PSE Or 'Is NME (text)' = NME Or 'Is SSE (text)' = SSE)
+        ),
+        Filter(
+            'Patient Portal Events',
+            ('Is Serious (text)' = SE Or 'Is Infrastructure(text)' = IF Or 'Is Incident(text)' = IE Or 'Is investigation(text)' = INV Or 'Is Sentinal(text)' = SEN Or 'Is PSE (text)' = PSE Or 'Is NME (text)' = NME Or 'Is SSE (text)' = SSE),
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value))
+        )
+    ),
+    (!IsBlank('between date picker'.Value) && (IsBlank(SE) && IsBlank(IF) && IsBlank(IE) && IsBlank(INV) && IsBlank(SEN) && IsBlank(PSE) && IsBlank(NME) && IsBlank(SSE))),
+    If(
+        'datetype radio'.Selected.name = "Admission Date",
+        Filter(
+            'Patient Portal Events',
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value)),
+            (('Admission Date' >= 'between date picker'.Value Or IsBlank('between date picker'.Value)) && ('Admission Date' <= DateAdd(
+                DateAdd(
+                    DateAdd(
+                        'and date picker'.Value,
+                        23,
+                        Hours
+                    ),
+                    59,
+                    Minutes
+                ),
+                59000,
+                Milliseconds
+            ) Or IsBlank('and date picker'.Value)))
+        ),
+        'datetype radio'.Selected.name = "Confirmation Date",
+        Filter(
+            'Patient Portal Events',
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value)),
+            (('Confirmation Date' >= 'between date picker'.Value Or IsBlank('between date picker'.Value)) && ('Confirmation Date' <= DateAdd(
+                DateAdd(
+                    DateAdd(
+                        'and date picker'.Value,
+                        23,
+                        Hours
+                    ),
+                    59,
+                    Minutes
+                ),
+                59000,
+                Milliseconds
+            ) Or IsBlank('and date picker'.Value)))
+        ),
+        'datetype radio'.Selected.name = "Last Modified Date",
+        Filter(
+            'Patient Portal Events',
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value)),
+            (('Modified On' >= 'between date picker'.Value Or IsBlank('between date picker'.Value)) && ('Modified On' <= DateAdd(
+                DateAdd(
+                    DateAdd(
+                        'and date picker'.Value,
+                        23,
+                        Hours
+                    ),
+                    59,
+                    Minutes
+                ),
+                59000,
+                Milliseconds
+            ) Or IsBlank('and date picker'.Value)))
+        ),
+        'datetype radio'.Selected.name = "Discharge Date",
+        Filter(
+            'Patient Portal Events',
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value)),
+            (('Discharge Date' >= 'between date picker'.Value Or IsBlank('between date picker'.Value)) && ('Discharge Date' <= DateAdd(
+                DateAdd(
+                    DateAdd(
+                        'and date picker'.Value,
+                        23,
+                        Hours
+                    ),
+                    59,
+                    Minutes
+                ),
+                59000,
+                Milliseconds
+            ) Or IsBlank('and date picker'.Value)))
+        ),
+        'datetype radio'.Selected.name = "Discovery Date",
+        Filter(
+            'Patient Portal Events',
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value)),
+            (('Discovery Date' >= 'between date picker'.Value Or IsBlank('between date picker'.Value)) && ('Discovery Date' <= DateAdd(
+                DateAdd(
+                    DateAdd(
+                        'and date picker'.Value,
+                        23,
+                        Hours
+                    ),
+                    59,
+                    Minutes
+                ),
+                59000,
+                Milliseconds
+            ) Or IsBlank('and date picker'.Value)))
+        ),
+        'datetype radio'.Selected.name = "Event Date",
+        Filter(
+            'Patient Portal Events',
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value)),
+            (('Event Date' >= 'between date picker'.Value Or IsBlank('between date picker'.Value)) && ('Event Date' <= DateAdd(
+                DateAdd(
+                    DateAdd(
+                        'and date picker'.Value,
+                        23,
+                        Hours
+                    ),
+                    59,
+                    Minutes
+                ),
+                59000,
+                Milliseconds
+            ) Or IsBlank('and date picker'.Value)))
+        ),
+        Filter(
+            'Patient Portal Events',
+            ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+            (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+            ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+            ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+            ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+            ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+            ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value))
+        )
+    ),
+    (IsBlank(SE) And IsBlank(IF) And IsBlank(IE) And IsBlank(INV) And IsBlank(SEN) And IsBlank(PSE) And IsBlank(NME) And IsBlank(SSE)),
+    Filter(
+        'Patient Portal Events',
+        ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+        (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+        ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+        ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+        ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+        ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+        ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value))
+    ),
+    Filter(
+        'Patient Portal Events',
+        ('Is Serious (text)' = SE Or 'Is Infrastructure(text)' = IF Or 'Is Incident(text)' = IE Or 'Is investigation(text)' = INV Or 'Is Sentinal(text)' = SEN Or 'Is PSE (text)' = PSE Or 'Is NME (text)' = NME Or 'Is SSE (text)' = SSE),
+        ('PSS (mlh_psp_psschoice)' = 'pss dd'.Selected.Value Or IsBlank('pss dd'.Selected.Value)),
+        (Site.HospitalName = 'site dd'.Selected.HospitalName Or IsBlank('site dd'.Selected.HospitalName)),
+        ('firstname ti'.Value in 'Patient First Name' Or IsBlank('firstname ti'.Value)),
+        ('last name ti'.Value in 'Patient Last Name' Or IsBlank('last name ti'.Value)),
+        ('mrnno ti'.Value in 'MRN #' Or IsBlank('mrnno ti'.Value)),
+        ('eventreportmo ti'.Value in 'Event Report #' Or IsBlank('eventreportmo ti'.Value)),
+        ('title ti'.Value in 'Event Title' Or IsBlank('title ti'.Value))
+    )
+)
