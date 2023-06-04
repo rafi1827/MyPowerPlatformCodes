@@ -1,0 +1,2 @@
+CALENDAR(max(Calenderdates[Date]),MAX(Calenderdates[Date]))
+CALENDAR(max(Calenderdates[Date]),MAX(Calenderdates[Date]))

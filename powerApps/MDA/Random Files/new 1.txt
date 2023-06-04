@@ -1,0 +1,3 @@
+[02:10 pm] Palavali, Yoshitha Reddy
+Calendardate = ADDCOLUMNS(CALENDAR(MINX('Total Count', 'Total Count'[pead1.interaction_start_date]),MAXX('Total Count', 'Total Count'[pead1.interaction_start_date])),"Year",YEAR([Date]),"MonthName",FORMAT([Date],"mmmm"),"weekNum",CONCATENATE("Week-",WEEKNUM([Date])),"DayNum",([Date]))
+
