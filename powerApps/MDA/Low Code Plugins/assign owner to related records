@@ -1,0 +1,5 @@
+With({ RelatedRecords: Filter(wtwosna_procedurestep, 
+                          And(wtwosna_ProcedureInstance.wtwosna_procedureinstanceid = GUID(procedureinstanceid), statuscode <> wtwosna_procedurestep_wtwosna_procedurestep_statuscode.'959100006')), 
+    owner: LookUp(wtwosna_procedureinstance, wtwosna_procedureinstanceid = GUID(procedureinstanceid))._ownerid_value },
+    ForAll(RelatedRecords, Patch(wtwosna_procedurestep, ThisRecord, { _ownerid_value: owner }))
+)
